@@ -19,26 +19,55 @@
 
 ## Project overview
 
-This repository contains undergraduate thesis work focused on converting a **quantum expectation value estimation problem** into a **classical ML/DL prediction problem**.
+This repository contains thesis work on converting a **quantum expectation value estimation problem** into a **classical ML/DL regression problem**. The study uses **NISQ-era quantum computing**, **classical shadow tomography**, and **VQE-generated data** for the H2 molecular system to train models that predict expectation values from compact classical features rather than relying on very large measurement budgets.
 
-Main idea:
-- Use **quantum shadow tomography** to build a compact classical representation of many-body quantum states.
-- Generate measurement datasets from VQE-based setups.
-- Train classical machine learning/deep learning models to predict expectation values from Pauli observables and coefficients.
-- Evaluate whether strong prediction can be achieved with significantly fewer measurements (e.g., around 185) compared with larger baselines used in prior work.
+In this workflow, the quantum part generates measurement and Pauli-observable data, while the classical part uses ML/DL methods to learn the mapping from those features to expectation values. The result is a practical bridge between quantum chemistry experiments and classical predictive modeling.
+
+> **Quick visual summary**
+> - Focus: quantum measurement data → classical expectation-value prediction
+> - Domain: H2 molecular system + VQE + shadow tomography
+> - Outcome: regression-style ML/DL modeling and experimental comparison
+> - Goal: reduce dependence on large measurement budgets while preserving predictive quality
 
 ## Table of contents
 
 - [Project overview](#project-overview)
-- [Repository structure](#repository-structure)
-- [Workflow](#workflow)
-- [How to run](#how-to-run)
-- [Key files](#key-files)
+- [Dataset](#dataset)
+- [Methodology](#methodology)
+- [Installation](#installation)
+- [Tools](#tools)
+- [Usage](#usage)
+- [Results](#results)
+- [Project flow](#project-flow)
+- [Project structure](#project-structure)
 - [Extended papers](#extended-papers)
 - [Reference implementations](#reference-implementations)
 - [Learning resources](#learning-resources)
+- [License](#license)
 
-## Repository structure
+## Dataset
+
+The datasets in this repository are generated from the H2 quantum chemistry workflow and the classical-shadow measurement pipeline used in the thesis.
+
+- Dataset source: measurement outcomes, Pauli-operator information, and classical-shadow features stored in the experiment folders.
+- Main system studied: H2 (with the thesis also comparing related derandomized and VQE-style experiment variants).
+- Typical features: Pauli observable information, expectation-value features, coefficient terms, and classical-shadow derived representations.
+- Target variable: the expectation value / regression target learned from the generated quantum data.
+- Measurement focus: the thesis emphasizes compact measurement settings and compares different classical-shadow and derandomization strategies rather than using a full exhaustive measurement approach.
+
+## Methodology
+
+The thesis follows a compact research pipeline that links quantum measurements to classical prediction:
+
+1. Build the molecular / VQE setting for the H2 system and derive Pauli / fermionic operator representations.
+2. Generate measurement outcomes using classical-shadow and derandomized measurement strategies, including comparison against randomized baselines.
+3. Convert those outcomes into structured datasets of observable and coefficient features.
+4. Train classical ML/DL models (for example, regression and tree-based approaches, with LSTM / Bi-LSTM style experimentation in the related workflow) to predict expectation values.
+5. Evaluate the effect of measurement budget, optimizer choices, and data preprocessing on prediction quality.
+
+This is the practical core of the project: turning a quantum expectation-value estimation problem into a classical learning problem that can be studied and compared across multiple experiment versions.
+
+## Project structure
 
 ```txt
 .
@@ -58,47 +87,69 @@ Main idea:
 └── README.md
 ```
 
-## Workflow
-
-1) **Generate / design measurement procedures**
-- Randomized classical shadow and derandomized shadow variants.
-
-2) **Acquire shadow-based data**
-- Produce measurement operators/outcomes and expectation-related datasets.
-
-3) **Train classical ML/DL models**
-- Use generated classical datasets (CSV files) to train and evaluate predictive models.
-
-4) **Compare configurations**
-- Compare versions (`V13`, `V14`, `V16`) and experiment branches (with/without SMAGON).
-
-## How to run
-
-> The project is experiment-driven across multiple folders/versions. Run scripts from the corresponding experiment directory.
-
-Typical steps:
+## Installation
 
 ```bash
-# 1) Move into a target experiment folder (example)
+git clone https://github.com/your-username/Transformation-of-Quantum-Expectation-value-problem-to-Classical-ML-and-DL-Problem.git
+cd Transformation-of-Quantum-Expectation-value-problem-to-Classical-ML-and-DL-Problem
+pip install numpy pandas scikit-learn catboost qiskit qiskit-nature jupyter
+```
+
+## Tools
+
+A compact stack of tools supports the full thesis workflow from quantum measurement generation to classical prediction.
+
+- Python + Jupyter for experimentation, scripting, and notebook-based analysis.
+- Qiskit + Qiskit Nature for VQE workflows, fermionic-to-qubit mapping, and quantum chemistry setup.
+- NumPy, Pandas, Matplotlib, and Plotly for dataset handling, analysis, and visualization.
+- Scikit-learn, CatBoost, and related ML libraries for classical regression and prediction.
+- LIME, SHAP, and ELI5 for explainability and model interpretation.
+- VS Code as the main development environment for the repository and experiment files.
+- Hardware context: the project is designed for NISQ-era research computing and local/academic setups, with optional GPU/TPU acceleration for heavier ML tasks.
+
+This toolchain connects the quantum and classical parts of the project in one reproducible pipeline.
+
+## Usage
+
+Run the experiment scripts from the relevant folder:
+
+```bash
 cd "Classical Machine learning and Deep learning/V13"
-
-# 2) Generate / process measurement procedures or datasets
 python data_acquisition_shadow.py
-
-# 3) Run prediction/evaluation flow
 python prediction_shadow.py
 ```
 
-If you are using notebook-based workflows, open and run:
-- `electronic_structure_problem_dcs_Hydrozen.ipynb`
+You can also open the notebook workflow in the same experiment directory for interactive analysis.
 
-## Key files
+## Results
 
-- `data_acquisition_shadow.py`: shadow measurement procedure generation.
-- `modified_derandomization.py`: modified derandomized classical shadow routine.
-- `prediction_shadow.py`: expectation value estimation/prediction utilities.
-- `Classical_data_H2.csv`, `file1.csv`, `file2.csv`: generated datasets for model training/evaluation.
+The repository is research-oriented rather than a benchmark-style classification project. The main evaluation target is expectation-value prediction quality under different quantum measurement and classical modeling settings.
 
+The thesis emphasizes:
+- RMSE / MAE / regression-style comparison for expectation-value prediction
+- Comparison between classical-shadow and derandomized measurement strategies
+- Comparison among classical ML and DL approaches across the `V13`, `V14`, and `V16` experiment folders, including SMAGON and non-SMAGON variants
+- Sensitivity to measurement budget and VQE / optimizer settings, which are central to the project’s experimental discussion
+
+## Project flow
+
+```text
+H2 / VQE chemistry setup
+        ↓
+Fermionic → qubit operators
+        ↓
+Classical-shadow + derandomized measurements
+        ↓
+Pauli operators + expectation values + coefficients
+        ↓
+Data cleaning, normalization, train/test split
+        ↓
+Classical ML / DL regression models
+        ↓
+Performance comparison + explainability analysis
+```
+
+This diagram summarizes the thesis workflow from quantum measurement generation to classical expectation-value prediction and evaluation.
 ## Extended papers
 
 1. Predicting many properties of a quantum system from very few measurements  
@@ -121,3 +172,7 @@ If you are using notebook-based workflows, open and run:
 2. https://www.classiq.io/algorithms/variational-quantum-eigensolver-vqe
 3. https://qiskit-community.github.io/qiskit-nature/tutorials/06_qubit_mappers.html
 4. https://www.youtube.com/watch?v=YtepXvx5zdI
+
+## License
+
+This repository is intended for academic and research use. Please credit the related quantum-shadow, VQE, and classical ML/DL references in this project when reusing or extending the work.
