@@ -1,23 +1,23 @@
-<h1 align="center">Transformation of Quantum Expectation Value Problem to Classical ML/DL Problem</h1>
+<h1 align="center">Quantum expectation value transformation by machine and deep learning</h1>
 
 <p align="center"><i>Quantum shadow tomography + VQE data generation + classical machine learning/deep learning for expectation value prediction.</i></p>
 
 <p align="center">
 	<img src="https://img.shields.io/badge/PROJECT-THESIS-E11D48?style=for-the-badge&labelColor=7F1D1D" alt="Thesis project" />
-	<img src="https://img.shields.io/badge/STATUS-ACTIVE-84CC16?style=for-the-badge&labelColor=14532D" alt="Active" />
-	<img src="https://img.shields.io/badge/DOMAIN-QUANTUM%20ML-8B5CF6?style=for-the-badge&labelColor=4C1D95" alt="Quantum ML" />
-	<img src="https://img.shields.io/badge/LICENSE-RESEARCH-0EA5E9?style=for-the-badge&labelColor=1E3A8A" alt="Research use" />
+	<img src="https://img.shields.io/badge/STATUS-ACTIVE-22C55E?style=for-the-badge&labelColor=14532D" alt="Active" />
+	<img src="https://img.shields.io/badge/DOMAIN-QUANTUM%20ML-A78BFA?style=for-the-badge&labelColor=4C1D95" alt="Quantum ML" />
+	<img src="https://img.shields.io/badge/LICENSE-RESEARCH-38BDF8?style=for-the-badge&labelColor=1E3A8A" alt="Research use" />
 </p>
 
 <p align="center">
 	<img src="https://img.shields.io/badge/PYTHON-3.x-14B8A6?style=for-the-badge&logo=python&logoColor=white&labelColor=0F766E" alt="Python" />
-	<img src="https://img.shields.io/badge/QISKIT-QUANTUM-6366F1?style=for-the-badge&logo=qiskit&logoColor=white&labelColor=4338CA" alt="Qiskit" />
+	<img src="https://img.shields.io/badge/QISKIT-QUANTUM-8B5CF6?style=for-the-badge&logo=qiskit&logoColor=white&labelColor=4338CA" alt="Qiskit" />
 	<img src="https://img.shields.io/badge/PANDAS-DATA-06B6D4?style=for-the-badge&logo=pandas&logoColor=white&labelColor=155E75" alt="Pandas" />
 	<img src="https://img.shields.io/badge/SCIKIT--LEARN-ML-A855F7?style=for-the-badge&logo=scikitlearn&logoColor=white&labelColor=7E22CE" alt="Scikit-learn" />
 	<img src="https://img.shields.io/badge/CATBOOST-MODELING-F59E0B?style=for-the-badge&labelColor=92400E" alt="CatBoost" />
 </p>
 
-## Project overview
+<h2 id="project-overview" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📌 Project overview</h2>
 
 This repository contains thesis work on converting a **quantum expectation value estimation problem** into a **classical ML/DL regression problem**. The study uses **NISQ-era quantum computing**, **classical shadow tomography**, and **VQE-generated data** for the H2 molecular system to train models that predict expectation values from compact classical features rather than relying on very large measurement budgets.
 
@@ -40,12 +40,10 @@ In this workflow, the quantum part generates measurement and Pauli-observable da
 - [Results](#results)
 - [Project flow](#project-flow)
 - [Project structure](#project-structure)
-- [Extended papers](#extended-papers)
-- [Reference implementations](#reference-implementations)
-- [Learning resources](#learning-resources)
+- [Further reading & references](#extended-papers-reference-implementations-and-learning-resources)
 - [License](#license)
 
-## Dataset
+<h2 id="dataset" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📊 Dataset</h2>
 
 The datasets in this repository are generated from the H2 quantum chemistry workflow and the classical-shadow measurement pipeline used in the thesis.
 
@@ -55,7 +53,7 @@ The datasets in this repository are generated from the H2 quantum chemistry work
 - Target variable: the expectation value / regression target learned from the generated quantum data.
 - Measurement focus: the thesis emphasizes compact measurement settings and compares different classical-shadow and derandomization strategies rather than using a full exhaustive measurement approach.
 
-## Methodology
+<h2 id="methodology" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🧪 Methodology</h2>
 
 The thesis follows a compact research pipeline that links quantum measurements to classical prediction:
 
@@ -67,7 +65,7 @@ The thesis follows a compact research pipeline that links quantum measurements t
 
 This is the practical core of the project: turning a quantum expectation-value estimation problem into a classical learning problem that can be studied and compared across multiple experiment versions.
 
-## Project structure
+<h2 id="project-structure" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🗂️ Project structure</h2>
 
 ```txt
 .
@@ -87,7 +85,7 @@ This is the practical core of the project: turning a quantum expectation-value e
 └── README.md
 ```
 
-## Installation
+<h2 id="installation" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">⚙️ Installation</h2>
 
 ```bash
 git clone https://github.com/your-username/Transformation-of-Quantum-Expectation-value-problem-to-Classical-ML-and-DL-Problem.git
@@ -95,21 +93,20 @@ cd Transformation-of-Quantum-Expectation-value-problem-to-Classical-ML-and-DL-Pr
 pip install numpy pandas scikit-learn catboost qiskit qiskit-nature jupyter
 ```
 
-## Tools
+<h2 id="tools" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🧰 Tools</h2>
 
-A compact stack of tools supports the full thesis workflow from quantum measurement generation to classical prediction.
+**Research stack used in this thesis workflow**
 
-- Python + Jupyter for experimentation, scripting, and notebook-based analysis.
-- Qiskit + Qiskit Nature for VQE workflows, fermionic-to-qubit mapping, and quantum chemistry setup.
-- NumPy, Pandas, Matplotlib, and Plotly for dataset handling, analysis, and visualization.
-- Scikit-learn, CatBoost, and related ML libraries for classical regression and prediction.
-- LIME, SHAP, and ELI5 for explainability and model interpretation.
-- VS Code as the main development environment for the repository and experiment files.
-- Hardware context: the project is designed for NISQ-era research computing and local/academic setups, with optional GPU/TPU acceleration for heavier ML tasks.
+- **Quantum / chemistry:** Qiskit, Qiskit Nature, VQE setup, fermionic-to-qubit mapping.
+- **Data / analysis:** Python, Jupyter, NumPy, Pandas, Matplotlib, Plotly.
+- **Machine learning:** Scikit-learn, CatBoost, regression and prediction workflows.
+- **Interpretability:** LIME, SHAP, ELI5 for model explanation and insight.
+- **Development environment:** VS Code for experiment files, notebooks, and repository organization.
+- **Hardware context:** NISQ-era research computing with optional GPU/TPU acceleration for heavier ML tasks.
 
 This toolchain connects the quantum and classical parts of the project in one reproducible pipeline.
 
-## Usage
+<h2 id="usage" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🚀 Usage</h2>
 
 Run the experiment scripts from the relevant folder:
 
@@ -121,7 +118,7 @@ python prediction_shadow.py
 
 You can also open the notebook workflow in the same experiment directory for interactive analysis.
 
-## Results
+<h2 id="results" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📈 Results</h2>
 
 The repository is research-oriented rather than a benchmark-style classification project. The main evaluation target is expectation-value prediction quality under different quantum measurement and classical modeling settings.
 
@@ -131,7 +128,7 @@ The thesis emphasizes:
 - Comparison among classical ML and DL approaches across the `V13`, `V14`, and `V16` experiment folders, including SMAGON and non-SMAGON variants
 - Sensitivity to measurement budget and VQE / optimizer settings, which are central to the project’s experimental discussion
 
-## Project flow
+<h2 id="project-flow" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🔄 Project flow</h2>
 
 ```text
 H2 / VQE chemistry setup
@@ -150,7 +147,9 @@ Performance comparison + explainability analysis
 ```
 
 This diagram summarizes the thesis workflow from quantum measurement generation to classical expectation-value prediction and evaluation.
-## Extended papers
+<h2 id="extended-papers-reference-implementations-and-learning-resources" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📚 Further reading & references</h2>
+
+<h3 style="color:#111827; margin-top:1rem; font-weight:600;">📄 Core research papers</h3>
 
 1. Predicting many properties of a quantum system from very few measurements  
    https://www.nature.com/articles/s41567-020-0932-7
@@ -161,18 +160,18 @@ This diagram summarizes the thesis workflow from quantum measurement generation 
 3. Information-theoretic bounds on quantum advantage in machine learning  
    https://arxiv.org/abs/2101.02464
 
-## Reference implementations
+<h3 style="color:#111827; margin-top:1rem; font-weight:600;">💻 Reference implementations</h3>
 
 1. https://github.com/hsinyuan-huang/predicting-quantum-properties
 2. https://github.com/renatawong/classical-shadow-vqe
 
-## Learning resources
+<h3 style="color:#111827; margin-top:1rem; font-weight:600;">🎓 Learning resources</h3>
 
 1. https://www.youtube.com/watch?v=NXejv2wVwas
 2. https://www.classiq.io/algorithms/variational-quantum-eigensolver-vqe
 3. https://qiskit-community.github.io/qiskit-nature/tutorials/06_qubit_mappers.html
 4. https://www.youtube.com/watch?v=YtepXvx5zdI
 
-## License
+<h2 id="license" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📜 License</h2>
 
 This repository is intended for academic and research use. Please credit the related quantum-shadow, VQE, and classical ML/DL references in this project when reusing or extending the work.
