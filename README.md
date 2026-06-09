@@ -1,3 +1,9 @@
+<p align="center">
+	<a href="https://www.flaticon.com/free-icon/microprocessor_5905354?term=quantum&page=1&position=3&origin=search&related_id=5905354" title="Microprocessor icon - Flaticon" target="_blank" rel="noopener">
+		<img src="https://cdn-icons-png.flaticon.com/512/5905/5905354.png" alt="Microprocessor icon" width="120" />
+	</a>
+</p>
+
 <h1 align="center">Quantum expectation value transformation by machine and deep learning</h1>
 
 <p align="center"><i>Quantum shadow tomography + VQE data generation + classical machine learning/deep learning for expectation value prediction.</i></p>
