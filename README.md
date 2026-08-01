@@ -209,6 +209,8 @@ The following plots visualize the results obtained from the conducted experiment
 	<figcaption style="font-size:90%; margin-top:6px;">Figure: Derandomized classical shadow tomography</figcaption>
 </figure>
 
+<div style="height:24px;"></div>
+
 **LSTM comparison**
 
 <table>
