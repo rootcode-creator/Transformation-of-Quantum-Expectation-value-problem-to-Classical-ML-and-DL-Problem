@@ -86,6 +86,9 @@ This is the practical core of the project: turning a quantum expectation-value e
 
 ### 🔄 Project flow
 
+**The thesis experiments were conducted according to the following workflow:**
+
+
 ```mermaid
 flowchart TB
 	A[H2 / VQE chemistry setup]
@@ -177,7 +180,6 @@ You can also open the notebook workflow in the same experiment directory for int
 
 <h2 id="tools" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🧰 Tools</h2>
 
-**Research stack used in this thesis workflow**
 
 - **Quantum / chemistry:** Qiskit, Qiskit Nature, VQE setup, fermionic-to-qubit mapping.
 - **Data / analysis:** Python, Jupyter, NumPy, Pandas, Matplotlib, Plotly.
