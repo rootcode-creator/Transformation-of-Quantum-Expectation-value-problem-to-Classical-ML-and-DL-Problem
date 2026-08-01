@@ -211,39 +211,43 @@ The following plots visualize the results obtained from the conducted experiment
 
 **LSTM comparison**
 
-<div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; align-items:flex-start;">
-	<figure style="margin:0; text-align:center; flex:1 1 220px; max-width:240px;">
-		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20Validation%20RMSE%20for%20LSTM.png" alt="Training vs Validation RMSE for LSTM" width="240" style="border:1px solid #eee; max-width:100%; height:auto;"/>
-		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation RMSE</figcaption>
-	</figure>
-	<figure style="margin:0; text-align:center; flex:1 1 220px; max-width:240px;">
-		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20validation%20loss%20for%20LSTM.png" alt="Training vs validation loss for LSTM" width="240" style="border:1px solid #eee; max-width:100%; height:auto;"/>
-		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation Loss</figcaption>
-	</figure>
-	<figure style="margin:0; text-align:center; flex:1 1 220px; max-width:240px;">
-		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/XAI%20explanation%20of%20model%20prediction.png" alt="XAI explanation of model prediction" width="240" style="border:1px solid #eee; max-width:100%; height:auto;"/>
-		<figcaption style="font-size:90%; margin-top:6px;">Figure: Model explanation (LIME)</figcaption>
-	</figure>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20Validation%20RMSE%20for%20LSTM.png" alt="Training vs Validation RMSE for LSTM" width="240" />
+      <p style="font-size:90%; margin-top:6px;">Figure: Training vs Validation RMSE</p>
+    </td>
+    <td align="center">
+      <img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20validation%20loss%20for%20LSTM.png" alt="Training vs validation loss for LSTM" width="240" />
+      <p style="font-size:90%; margin-top:6px;">Figure: Training vs Validation Loss</p>
+    </td>
+    <td align="center">
+      <img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/XAI%20explanation%20of%20model%20prediction.png" alt="XAI explanation of model prediction" width="240" />
+      <p style="font-size:90%; margin-top:6px;">Figure: Model explanation (LIME)</p>
+    </td>
+  </tr>
+</table>
 
 <div style="height:48px;"></div>
 
 **BI-LSTM comparison**
 
-<div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; align-items:flex-start;">
-	<figure style="margin:0; text-align:center; flex:1 1 220px; max-width:240px;">
-		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20Validation%20RMSE%20for%20for%20BI-LSTM.png" alt="BI-LSTM RMSE" width="240" style="border:1px solid #eee; max-width:100%; height:auto;"/>
-		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation RMSE</figcaption>
-	</figure>
-	<figure style="margin:0; text-align:center; flex:1 1 220px; max-width:240px;">
-		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20validation%20loss%20for%20BI-LSTM.png" alt="BI-LSTM loss" width="240" style="border:1px solid #eee; max-width:100%; height:auto;"/>
-		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation Loss</figcaption>
-	</figure>
-	<figure style="margin:0; text-align:center; flex:1 1 220px; max-width:240px;">
-		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/XAI%20explanation%20of%20model%20prediction.png" alt="XAI explanation of model prediction" width="240" style="border:1px solid #eee; max-width:100%; height:auto;"/>
-		<figcaption style="font-size:90%; margin-top:6px;">Figure: Model explanation (LIME)</figcaption>
-	</figure>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20Validation%20RMSE%20for%20for%20BI-LSTM.png" alt="BI-LSTM RMSE" width="240" />
+      <p style="font-size:90%; margin-top:6px;">Figure: Training vs Validation RMSE</p>
+    </td>
+    <td align="center">
+      <img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20validation%20loss%20for%20BI-LSTM.png" alt="BI-LSTM loss" width="240" />
+      <p style="font-size:90%; margin-top:6px;">Figure: Training vs Validation Loss</p>
+    </td>
+    <td align="center">
+      <img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/XAI%20explanation%20of%20model%20prediction.png" alt="XAI explanation of model prediction" width="240" />
+      <p style="font-size:90%; margin-top:6px;">Figure: Model explanation (LIME)</p>
+    </td>
+  </tr>
+</table>
 
 <div style="height:32px;"></div>
 
