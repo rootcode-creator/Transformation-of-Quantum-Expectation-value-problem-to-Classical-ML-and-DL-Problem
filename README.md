@@ -23,7 +23,22 @@
 	<img src="https://img.shields.io/badge/CATBOOST-MODELING-F59E0B?style=for-the-badge&labelColor=92400E" alt="CatBoost" />
 </p>
 
-<h2 id="project-overview" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📌 Project overview</h2>
+## Table of Contents
+
+- 🚀 [Project intro](#project-intro)
+- 📊 [Dataset](#dataset)
+- 🧪 [Methodology](#methodology)
+- ⚙️ [Install methods](#install-methods)
+- 🧰 [Tools](#tools)
+- 🚀 [Usage](#usage)
+- 📈 [Results](#results)
+- 🔄 [Project flow](#project-flow)
+- 📁 [Project structure](#project-structure)
+- 📚 [Further reading & references](#extended-papers-reference-implementations-and-learning-resources)
+- 📜 [License](#license)
+
+
+## 🚀 Project intro
 
 This repository contains thesis work on converting a **quantum expectation value estimation problem** into a **classical ML/DL regression problem**. The study uses **NISQ-era quantum computing**, **classical shadow tomography**, and **VQE-generated data** for the H2 molecular system to train models that predict expectation values from compact classical features rather than relying on very large measurement budgets.
 
@@ -35,29 +50,27 @@ In this workflow, the quantum part generates measurement and Pauli-observable da
 > - Outcome: regression-style ML/DL modeling and experimental comparison
 > - Goal: reduce dependence on large measurement budgets while preserving predictive quality
 
-## Table of contents
-
-- [Project overview](#project-overview)
-- [Dataset](#dataset)
-- [Methodology](#methodology)
-- [Installation](#installation)
-- [Tools](#tools)
-- [Usage](#usage)
-- [Results](#results)
-- [Project flow](#project-flow)
-- [Project structure](#project-structure)
-- [Further reading & references](#extended-papers-reference-implementations-and-learning-resources)
-- [License](#license)
-
 <h2 id="dataset" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📊 Dataset</h2>
 
 The datasets in this repository are generated from the H2 quantum chemistry workflow and the classical-shadow measurement pipeline used in the thesis.
 
-- Dataset source: measurement outcomes, Pauli-operator information, and classical-shadow features stored in the experiment folders.
-- Main system studied: H2 (with the thesis also comparing related derandomized and VQE-style experiment variants).
-- Typical features: Pauli observable information, expectation-value features, coefficient terms, and classical-shadow derived representations.
-- Target variable: the expectation value / regression target learned from the generated quantum data.
-- Measurement focus: the thesis emphasizes compact measurement settings and compares different classical-shadow and derandomization strategies rather than using a full exhaustive measurement approach.
+-- Dataset source: measurement outcomes, Pauli-operator information, and classical-shadow features stored in the experiment folders.
+-- Main system studied: H2 (with the thesis also comparing related derandomized and VQE-style experiment variants).
+-- Typical features: Pauli observable information, expectation-value features, coefficient terms, and classical-shadow derived representations.
+-- Target variable: the expectation value / regression target learned from the generated quantum data.
+-- Measurement focus: the thesis emphasizes compact measurement settings and compares different classical-shadow and derandomization strategies rather than using a full exhaustive measurement approach.
+
+### 🧾 Dataset Characteristics
+
+<figure style="text-align:center; margin:8px 0;">
+	<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Coefficients%20vs%20nuber%20of%20values.png" alt="Coefficients vs number of values" width="360" style=""/>
+	<figcaption style="font-size:90%; margin-top:6px;">Figure: Coefficients vs Number of Values</figcaption>
+</figure>
+
+<figure style="text-align:center; margin:8px 0;">
+	<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/attribute_histogram_plots.png" alt="Attribute histogram plots" width="360" style=""/>
+	<figcaption style="font-size:90%; margin-top:6px;">Figure: Attribute histograms</figcaption>
+</figure>
 
 <h2 id="methodology" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🧪 Methodology</h2>
 
@@ -70,6 +83,21 @@ The thesis follows a compact research pipeline that links quantum measurements t
 5. Evaluate the effect of measurement budget, optimizer choices, and data preprocessing on prediction quality.
 
 This is the practical core of the project: turning a quantum expectation-value estimation problem into a classical learning problem that can be studied and compared across multiple experiment versions.
+
+### 🔄 Project flow
+
+```mermaid
+flowchart TB
+	A[H2 / VQE chemistry setup]
+	A --> B[Fermionic → qubit operators]
+	B --> C[Classical-shadow + derandomized measurements]
+	C --> D[Pauli operators + expectation values + coefficients]
+	D --> E[Data cleaning, normalization, train/test split]
+	E --> F[Classical ML / DL regression models]
+	F --> G[Performance comparison + explainability analysis]
+```
+
+This diagram summarizes the thesis workflow from quantum measurement generation to classical expectation-value prediction and evaluation.
 
 <h2 id="project-structure" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🗂️ Project structure</h2>
 
@@ -91,13 +119,61 @@ This is the practical core of the project: turning a quantum expectation-value e
 └── README.md
 ```
 
-<h2 id="installation" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">⚙️ Installation</h2>
+## ⚙️ Install methods
+
+### Prerequisites
+
+- Python 3.8 or newer
+- Git
+- Optional: `virtualenv` or `conda` for isolated environments
+
+### 📦 pip / Python (recommended)
+
+Clone the repo, create and activate a virtual environment, then install packages:
 
 ```bash
 git clone https://github.com/your-username/Transformation-of-Quantum-Expectation-value-problem-to-Classical-ML-and-DL-Problem.git
 cd Transformation-of-Quantum-Expectation-value-problem-to-Classical-ML-and-DL-Problem
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+pip install --upgrade pip
 pip install numpy pandas scikit-learn catboost qiskit qiskit-nature jupyter
 ```
+
+If a `requirements.txt` is provided, prefer:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 🧪 Conda (alternative)
+
+```bash
+conda create -n qml python=3.10
+conda activate qml
+pip install --upgrade pip
+pip install numpy pandas scikit-learn catboost qiskit qiskit-nature jupyter
+```
+
+### Post-install
+
+- Launch Jupyter (optional): `jupyter notebook` or `jupyter lab`
+- See experiment folders under `Classical Machine learning and Deep learning/` for runnable scripts and notebooks
+
+### 🚀 Usage
+
+Run the experiment scripts from the relevant folder:
+
+```bash
+cd "Classical Machine learning and Deep learning/V13"
+python data_acquisition_shadow.py
+python prediction_shadow.py
+```
+
+You can also open the notebook workflow in the same experiment directory for interactive analysis.
 
 <h2 id="tools" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🧰 Tools</h2>
 
@@ -112,47 +188,78 @@ pip install numpy pandas scikit-learn catboost qiskit qiskit-nature jupyter
 
 This toolchain connects the quantum and classical parts of the project in one reproducible pipeline.
 
-<h2 id="usage" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🚀 Usage</h2>
+<!-- Usage moved under Install methods -->
+## 📈 Results and analysis
 
-Run the experiment scripts from the relevant folder:
 
-```bash
-cd "Classical Machine learning and Deep learning/V13"
-python data_acquisition_shadow.py
-python prediction_shadow.py
-```
 
-You can also open the notebook workflow in the same experiment directory for interactive analysis.
+### 📈 Experimental visualizations
 
-<h2 id="results" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📈 Results</h2>
+<div style="height:16px;"></div>
+The following plots visualize the results obtained from the conducted experiments.
 
-The repository is research-oriented rather than a benchmark-style classification project. The main evaluation target is expectation-value prediction quality under different quantum measurement and classical modeling settings.
 
-The thesis emphasizes:
-- RMSE / MAE / regression-style comparison for expectation-value prediction
-- Comparison between classical-shadow and derandomized measurement strategies
-- Comparison among classical ML and DL approaches across the `V13`, `V14`, and `V16` experiment folders, including SMAGON and non-SMAGON variants
-- Sensitivity to measurement budget and VQE / optimizer settings, which are central to the project’s experimental discussion
 
-<h2 id="project-flow" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">🔄 Project flow</h2>
+**Derandomized classical shadow tomography**
 
-```text
-H2 / VQE chemistry setup
-        ↓
-Fermionic → qubit operators
-        ↓
-Classical-shadow + derandomized measurements
-        ↓
-Pauli operators + expectation values + coefficients
-        ↓
-Data cleaning, normalization, train/test split
-        ↓
-Classical ML / DL regression models
-        ↓
-Performance comparison + explainability analysis
-```
+<figure style="text-align:center; margin:8px 0 24px 0;">
+	<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Derandomize%20classical%20shadow%20graph.png" alt="Derandomize classical shadow graph" width="360" style=""/>
+	<figcaption style="font-size:90%; margin-top:6px;">Figure: Derandomized classical shadow tomography</figcaption>
+</figure>
 
-This diagram summarizes the thesis workflow from quantum measurement generation to classical expectation-value prediction and evaluation.
+**LSTM comparison**
+
+<div style="display:flex; gap:10px; flex-wrap:nowrap; overflow-x:auto; justify-content:center; align-items:flex-start;">
+	<figure style="margin:0; text-align:center; flex:0 0 auto;">
+		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20Validation%20RMSE%20for%20LSTM.png" alt="Training vs Validation RMSE for LSTM" width="260" style="border:1px solid #eee;"/>
+		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation RMSE</figcaption>
+	</figure>
+	<figure style="margin:0; text-align:center; flex:0 0 auto;">
+		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20validation%20loss%20for%20LSTM.png" alt="Training vs validation loss for LSTM" width="260" style="border:1px solid #eee;"/>
+		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation Loss</figcaption>
+	</figure>
+	<figure style="margin:0; text-align:center; flex:0 0 auto;">
+		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/XAI%20explanation%20of%20model%20prediction.png" alt="XAI explanation of model prediction" width="260" style="border:1px solid #eee;"/>
+		<figcaption style="font-size:90%; margin-top:6px;">Figure: Model explanation(LIME) </figcaption>
+	</figure>
+</div>
+
+<div style="height:48px;"></div>
+
+**BI-LSTM comparison**
+
+<div style="display:flex; gap:10px; flex-wrap:nowrap; overflow-x:auto; justify-content:center; align-items:flex-start;">
+	<figure style="margin:0; text-align:center; flex:0 0 auto;">
+		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20Validation%20RMSE%20for%20for%20BI-LSTM.png" alt="BI-LSTM RMSE" width="260" style="border:1px solid #eee;"/>
+		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation RMSE</figcaption>
+	</figure>
+	<figure style="margin:0; text-align:center; flex:0 0 auto;">
+		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/Training%20vs%20validation%20loss%20for%20BI-LSTM.png" alt="BI-LSTM loss" width="260" style="border:1px solid #eee;"/>
+		<figcaption style="font-size:90%; margin-top:6px;">Figure: Training vs Validation Loss</figcaption>
+	</figure>
+	<figure style="margin:0; text-align:center; flex:0 0 auto;">
+		<img src="Classical%20Machine%20learning%20and%20Deep%20learning/V13/IMAGES/XAI%20explanation%20of%20model%20prediction.png" alt="XAI explanation of model prediction" width="260" style="border:1px solid #eee;"/>
+		<figcaption style="font-size:90%; margin-top:6px;">Figure: Model explanation(LIME)</figcaption>
+	</figure>
+</div>
+
+<div style="height:32px;"></div>
+
+### 🧠 Results Interpretation
+
+The table below summarizes the main results and analytical takeaways from the project.
+
+| Metric / Topic | Analysis summary | Notes |
+|---|---|---|
+| RMSE / MAE | Core regression errors show how well the classical models approximate quantum expectation values. Lower error means better prediction quality. | See evaluation tables in `Classical Machine learning and Deep learning/` notebooks. |
+| Measurement strategy | Derandomized shadow methods improve sample efficiency and reduce variance compared to randomized sampling. They preserve accuracy with fewer measurements. | See the classical shadow analysis in the repository folders. |
+| Model comparison | Tree-based regressors are stable baselines while sequence-inspired models capture more complex feature interactions. | Use this as a concise guide to compare model families. |
+| Sensitivity analysis | Prediction outcomes vary with measurement budget, optimizer settings, and preprocessing. Robust preprocessing is important for stability. | The notebooks document these sensitivity checks. |
+| Explainability | Feature importance and XAI plots highlight the most influential quantum-derived features. | Refer to the `IMAGES/` folders and analysis notebooks. |
+
+
+
+
 <h2 id="extended-papers-reference-implementations-and-learning-resources" style="color:#111827; border-bottom:2px solid #e5e7eb; padding-bottom:6px; margin-top:2rem;">📚 Further reading & references</h2>
 
 <h3 style="color:#111827; margin-top:1rem; font-weight:600;">📄 Core research papers</h3>
